@@ -2,13 +2,27 @@ import { configureStore } from '@reduxjs/toolkit';
 import tasksReducer from './tasksSlice';
 
 function saveToLocalStorage(state) {
-	const serialized = JSON.stringify(state);
-	localStorage.setItem('tasks', serialized);
+	try {
+		const serialized = JSON.stringify(state);
+		localStorage.setItem('tasks', serialized);
+	}
+	catch (e) {
+		console.warn('Error: could not save to localStorage', e);
+	}
 }
 
 function loadFromLocalStorage() {
-	const serialized = localStorage.getItem('tasks');
-	return JSON.parse(serialized);
+	try {
+		const serialized = localStorage.getItem('tasks');
+		if (serialized === null) {
+			return [];
+		}
+		return JSON.parse(serialized);
+	}
+	catch (e) {
+		console.warn('Error: could not load from localStorage', e);
+		return [];
+	}
 }
 
 export const store = configureStore({
@@ -20,4 +34,9 @@ export const store = configureStore({
 			list: loadFromLocalStorage(),
 		},
 	},
+});
+
+store.subscribe(() => {
+	const { list } = store.getState().tasks;
+	saveToLocalStorage(list);
 });
