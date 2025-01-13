@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import NewTaskForm from "./tasks/NewTaskForm";
 
 function MainLayout() {
 	return (
@@ -14,6 +15,8 @@ function MainLayout() {
 						<button>Completed</button>
 						<button>Remaining</button>
 					</div>
+
+					<NewTaskForm />
 
 					<h2>Tasks</h2>
 				</div>
