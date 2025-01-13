@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import MainLayout from './components/MainLayout';
+import TaskDetails from './components/tasks/TaskDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                   </div>
                 }
             />
+            <Route path=":taskId" element={<TaskDetails />} />
           </Route>
         </Routes>
       </div>
