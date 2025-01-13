@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import MainLayout from './components/MainLayout';
 import TaskDetails from './components/tasks/TaskDetails';
+import TaskEdit from './components/tasks/TaskEdit';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 }
             />
             <Route path=":taskId" element={<TaskDetails />} />
+            <Route path=":taskId/edit" element={<TaskEdit />} />
           </Route>
         </Routes>
       </div>
