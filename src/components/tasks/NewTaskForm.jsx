@@ -10,18 +10,16 @@ function NewTaskForm() {
 
 	const handleAddTask = (e) => {
 		e.preventDefault();
-		if (!title.trim()) {
-			return;
-		}
+		if (!title.trim()) return;
 		dispatch(addTask(title, description));
 		setTitle('');
 		setDescription('');
 	};
 
 	return (
-		<form onSubmit={handleAddTask}>
-			<h3>Add a task</h3>
-			<div>
+		<form className="new-task-form" onSubmit={handleAddTask}>
+			<h3 className="section-title">Add a task</h3>
+			<div className="form-group">
 				<label>Title</label>
 				<textarea
 					placeholder="Enter title"
@@ -30,16 +28,19 @@ function NewTaskForm() {
 				/>
 			</div>
 
-			<div>
+			<div className="form-group">
 				<label>Description</label>
 				<textarea
 					placeholder="Enter description"
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
+					rows={3}
 				/>
 			</div>
 
-			<button type="submit">Add</button>
+			<button type="submit" className="primary-btn">
+				Add
+			</button>
 		</form>
 	);
 }

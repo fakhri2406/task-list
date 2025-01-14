@@ -9,9 +9,9 @@ function TaskDetails() {
 	);
 
 	return (
-		<div>
-			<h2>{task.title}</h2>
-			<p>{task.description}</p>
+		<div className="detail-container">
+			<h2 className="detail-title">{task.title}</h2>
+			<p className="detail-description">{task.description}</p>
 		</div>
 	);
 }

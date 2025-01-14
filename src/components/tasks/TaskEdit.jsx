@@ -22,10 +22,10 @@ function TaskEdit() {
 	};
 
 	return (
-		<div>
-			<h2>Edit the task</h2>
-			<form onSubmit={handleSave}>
-				<div>
+		<div className="detail-container">
+			<h2 className="detail-title">Edit the task</h2>
+			<form onSubmit={handleSave} className="edit-form">
+				<div className="form-group">
 					<label>Title</label>
 					<input
 						type="text"
@@ -35,16 +35,19 @@ function TaskEdit() {
 					/>
 				</div>
 
-				<div>
+				<div className="form-group">
 					<label>Description</label>
 					<textarea
 						placeholder="Enter description"
 						value={description}
 						onChange={(e) => setDescription(e.target.value)}
+						rows={3}
 					/>
 				</div>
 
-				<button type="submit">Save</button>
+				<button type="submit" className="primary-btn">
+					Save
+				</button>
 			</form>
 		</div>
 	);

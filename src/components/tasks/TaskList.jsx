@@ -21,26 +21,35 @@ function TaskList({ filter }) {
 	};
 
 	return (
-		<div>
+		<div className="tasks-list">
 			{filteredTasks.map((task) => (
-				<div key={task.id}>
-					<div>
+				<div
+					key={task.id}
+					className={`task-item ${task.completed ? 'completed' : ''}`}
+				>
+					<div className="task-left">
 						<input
 							type="checkbox"
 							checked={task.completed}
 							onChange={() => dispatch(toggleTask(task.id))}
 						/>
-						<span onClick={() => handleTaskClick(task.id)}>
-                            {task.title}
-                        </span>
+						<span
+							className="task-title"
+							onClick={() => handleTaskClick(task.id)}
+						>
+              {task.title}
+            </span>
 					</div>
 
-					<div>
+					<div className="task-right">
 						<Link to={`/${task.id}/edit`}>
-							<button>Edit</button>
+							<button className="edit-btn">✎</button>
 						</Link>
-						<button onClick={() => dispatch(deleteTask(task.id))}>
-							Delete
+						<button
+							className="delete-btn"
+							onClick={() => dispatch(deleteTask(task.id))}
+						>
+							✕
 						</button>
 					</div>
 				</div>

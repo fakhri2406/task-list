@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import NewTaskForm from "./tasks/NewTaskForm";
 import TaskList from './tasks/TaskList';
+import NewTaskForm from './tasks/NewTaskForm';
 
 function MainLayout() {
 	const [filter, setFilter] = useState('all');
@@ -11,26 +11,41 @@ function MainLayout() {
 	};
 
 	return (
-		<div>
-			<header>
-				<h1>Task List</h1>
+		<div className="main-layout">
+			<header className="header-bar">
+				<h1 className="header-title">Task List</h1>
 			</header>
 
-			<div>
-				<div>
-					<div>
-						<button onClick={() => handleFilter('all')}>Show all</button>
-						<button onClick={() => handleFilter('completed')}>Completed</button>
-						<button onClick={() => handleFilter('remaining')}>Remaining</button>
+			<div className="layout-content">
+				<div className="left-column">
+					<div className="filter-buttons">
+						<button
+							className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+							onClick={() => handleFilter('all')}
+						>
+							Show all
+						</button>
+						<button
+							className={`filter-btn ${filter === 'completed' ? 'active' : ''}`}
+							onClick={() => handleFilter('completed')}
+						>
+							Completed
+						</button>
+						<button
+							className={`filter-btn ${filter === 'remaining' ? 'active' : ''}`}
+							onClick={() => handleFilter('remaining')}
+						>
+							Not completed
+						</button>
 					</div>
 
-					<NewTaskForm />
-
-					<h2>Tasks</h2>
+					<h2 className="section-title">Tasks</h2>
 					<TaskList filter={filter} />
+
+					<NewTaskForm />
 				</div>
 
-				<div>
+				<div className="right-column">
 					<Outlet />
 				</div>
 			</div>
