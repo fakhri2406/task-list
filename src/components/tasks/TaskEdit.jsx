@@ -15,6 +15,10 @@ function TaskEdit() {
 	const [title, setTitle] = useState(task ? task.title : '');
 	const [description, setDescription] = useState(task ? task.description : '');
 
+	if (!task) {
+		return <div className="detail-container">Task not found</div>;
+	}
+
 	const handleSave = (e) => {
 		e.preventDefault();
 		dispatch(updateTask({ id: taskId, title, description }));

@@ -8,6 +8,10 @@ function TaskDetails() {
 		state.tasks.list.find((t) => t.id === taskId)
 	);
 
+	if (!task) {
+		return <div className="detail-container">Task not found</div>;
+	}
+
 	return (
 		<div className="detail-container">
 			<h2 className="detail-title">{task.title}</h2>
