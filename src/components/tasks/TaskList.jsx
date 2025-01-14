@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toggleTask, deleteTask } from './tasksSlice';
 
-function TaskList({ filter }) {
+function TaskList({ filter, searchQuery }) {
 	const tasks = useSelector((state) => state.tasks.list);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -14,6 +14,13 @@ function TaskList({ filter }) {
 	}
 	else if (filter === 'remaining') {
 		filteredTasks = tasks.filter((t) => !t.completed);
+	}
+
+	const query = searchQuery.trim().toLowerCase();
+	if (query) {
+		filteredTasks = filteredTasks.filter((t) =>
+			t.title.toLowerCase().includes(query)
+		);
 	}
 
 	const handleTaskClick = (taskId) => {
