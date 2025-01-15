@@ -1,6 +1,6 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-const tasksSlice = createSlice({
+const slice = createSlice({
 	name: 'tasks',
 	initialState: {
 		list: [],
@@ -43,6 +43,6 @@ const tasksSlice = createSlice({
 	},
 });
 
-export const { addTask, toggleTask, updateTask, deleteTask } = tasksSlice.actions;
+export const { addTask, toggleTask, updateTask, deleteTask } = slice.actions;
 
-export default tasksSlice.reducer;
+export default slice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { toggleTask, deleteTask } from './tasksSlice';
+import { toggleTask, deleteTask } from '../../redux/slice';
 
 function TaskList({ filter, searchQuery }) {
 	const tasks = useSelector((state) => state.tasks.list);
@@ -30,7 +30,7 @@ function TaskList({ filter, searchQuery }) {
 	return (
 		<div className="tasks-list">
 			<h2 className="section-title">Tasks</h2>
-			
+
 			{filteredTasks.map((task) => (
 				<div
 					key={task.id}

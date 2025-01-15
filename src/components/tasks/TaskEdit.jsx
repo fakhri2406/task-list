@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { updateTask } from './tasksSlice';
+import { updateTask } from '../../redux/slice';
 
 function TaskEdit() {
 	const { taskId } = useParams();
