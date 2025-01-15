@@ -29,6 +29,8 @@ function TaskList({ filter, searchQuery }) {
 
 	return (
 		<div className="tasks-list">
+			<h2 className="section-title">Tasks</h2>
+			
 			{filteredTasks.map((task) => (
 				<div
 					key={task.id}
