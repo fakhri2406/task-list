@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import '../styles/MainLayout.css';
 import TaskList from '../components/tasks/TaskList';
 import NewTaskForm from '../components/tasks/NewTaskForm';
 import SearchBar from './SearchBar';

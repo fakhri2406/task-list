@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/MainLayout.css';
 
 function FilterButtons({ filter, onFilterChange }) {
 	return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
+import './styles/App.css';
 import MainLayout from './components/MainLayout';
 import TaskDetails from './components/tasks/TaskDetails';
 import TaskEdit from './components/tasks/TaskEdit';
