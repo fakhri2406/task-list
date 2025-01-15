@@ -19,10 +19,6 @@ function MainLayout() {
 
 	return (
 		<div className="main-layout">
-			<header className="header-bar">
-				<h1 className="header-title">Task List</h1>
-			</header>
-
 			<div className="layout-content">
 				<div className="left-column">
 					<SearchBar

@@ -19,7 +19,7 @@ function FilterButtons({ filter, onFilterChange }) {
 				className={`filter-btn ${filter === 'remaining' ? 'active' : ''}`}
 				onClick={() => onFilterChange('remaining')}
 			>
-				Not completed
+				Remaining
 			</button>
 		</div>
 	);
